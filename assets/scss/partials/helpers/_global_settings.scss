@@ -1,0 +1,50 @@
+*{
+  box-sizing: border-box;
+
+  &::selection{
+    background-color: $bg-color-light;
+  }
+}
+
+html{
+  background-color: #fff;
+}
+
+body{
+  width: 100%;
+  max-width: 1638px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: $base-color;
+  overflow-x: hidden;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5{
+  margin: 0;
+  cursor: default;
+}
+
+ul, li{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+p, span{
+  margin: 0;
+  cursor: default;
+}
+
+.content-wrapper{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 35px 3%;
+
+  @include break-min(tablet-l){
+    display: flex;
+    padding: 60px 55px;
+  }
+}
+

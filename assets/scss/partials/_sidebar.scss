@@ -1,0 +1,231 @@
+.sidebar{
+  @include break-max(tablet-l){ margin-top: 60px; }
+
+  @include break-min(tablet-l){
+    min-width: 280px;
+    max-width: 280px;
+    margin-left: 30px;
+  }
+
+  @include break-min(laptop-m){
+    min-width: 360px;
+    max-width: 360px;
+  }
+}
+
+.sidebar-content{
+  width: 100%;
+  background-color: #fff;
+  padding: 40px 20px;
+
+  @include break-min(laptop-s){ padding: 40px 30px; }
+
+  &.about, &.contact{
+    padding-bottom: 0;
+  }
+}
+
+//Sidebar search widget
+.sidebar-search{
+  @include size(100%, 50px);
+  display: flex;
+  margin-bottom: 40px;
+
+  .widget_search{
+    width: 100%;
+  }
+
+  &__input{
+    @include flex(row, flex-start);
+    @include size(calc(100% - 50px), 100%);
+    @include font(15px, 300, $title-color, $font-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: $base-color;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+
+    &:focus{
+      border: 1px solid $bg-color-dark;
+    }
+
+    &::placeholder{
+      @include font(15px, 300, $title-color, $font-primary);
+    }
+  }
+
+  &__btn{
+    @include flex(row, center);
+    @include size(50px, 50px);
+    background-color: $bg-color-dark;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    svg{
+      @include size(17px, 17px);
+      fill: #fff;
+    }
+  }
+}
+
+//Sidebar image widget
+.sidebar-image{
+  overflow: hidden;
+  margin-bottom: 40px;
+
+  @include break-max(tablet-l){ display: none; }
+
+  img{
+    display: block;
+    @include size(100%, auto);
+    object-fit: cover;
+  }
+}
+
+//Sidebar categories widget
+.sidebar-category{
+  margin-bottom: 40px;
+
+  h2{
+    @extend %sidebar-title;
+  }
+
+  ul li{
+    @include flex(row, space-between);
+    @include border(solid, 0 0 1px 0, $bg-color-light);
+    @include font(13px, 500, $title-color, $font-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    min-height: 50px;
+
+    @include break-min(laptop-m){
+      min-height: 60px;
+      font-size: 16px;
+    }
+  }
+
+  a{
+    color: $title-color;
+    text-decoration: none;
+  }
+}
+
+//Sidebar latest posts widget
+.sidebar-posts{
+  margin-bottom: 40px;
+
+  h2{
+    @extend %sidebar-title;
+  }
+
+  &__item{
+    position: relative;
+    display: flex;
+    @include border(solid, 0 0 1px 0, $bg-color-light);
+    padding: 20px 0 15px 0;
+
+    &:last-child{ border: none; }
+
+    @include break-min(laptop-m){ padding: 30px 0 20px 0; }
+  }
+
+  &__img{
+    margin-right: 10px;
+
+    img{
+      @include size(80px, 62px);
+      object-fit: cover;
+      vertical-align: bottom;
+    }
+  }
+
+  &__info-title{
+    @include font(14px, 600, $title-color, $font-secondary);
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+
+    @include break-min(laptop-m){ font-size: 16px; }
+  }
+
+  &__info-date{
+    @extend %post-details;
+    display: block;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding-top: 8px;
+    margin: 0;
+
+    @include break-min(laptop-m){
+      font-size: 14px;
+      padding-top: 15px;
+    }
+  }
+}
+
+//Sidebar social-media icons menu
+.sidebar-sm{
+  margin-bottom: 30px;
+
+  ul{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  a{
+    font-size: 0;
+  }
+
+  svg{
+    margin-bottom: 11px;
+
+    &.twitter{ @include size(18px, 18px); }
+    &.facebook{ @include size(19px, 19px); }
+    &.dribbble{ @include size(17px, 17px); }
+    &.pinterest{ @include size(19px, 19px); }
+    &.linkedin{ @include size(18px, 19px); }
+  }
+}
+
+//Sidebar slider widget
+.sidebar-slider{
+  position: relative;
+  @include size(100%, 250px);
+
+  .widget_media_gallery{
+    background-color: $bg-color;
+    overflow: hidden !important;
+
+    div{
+      width: 100%;
+      @include flex(row, center);
+
+      //modifying Flickity slider default controls
+      .flickity-prev-next-button{
+        @include size(35px, 35px);
+        position: absolute;
+        background-color: rgba($bg-color, .5);
+        fill: #fff;
+        border: none;
+        outline: none;
+        cursor: pointer;
+
+        &.previous{ left: 0; }
+        &.next{ right: 0; }
+      }
+    }
+  }
+
+  .gallery-item{
+    @include size(100%, 250px);
+    margin: 0 !important;
+    
+    img{
+      @include size(100%, 250px);
+      object-fit: cover;
+      border: none !important;
+    }
+  }
+}

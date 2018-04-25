@@ -1,0 +1,186 @@
+//Standard and Status formats
+.format-standard, .format-status{
+  @extend %post-default;
+  @include post-inner-title($title-color);
+  background-color: #fff;
+
+  .post-content{
+    padding: 0 3% 33px 3%;
+
+    @include break-min(laptop-l){ padding: 0 40px 33px 40px; }
+
+    &:before{
+      @extend %post-icon;
+      background-color: $bg-color-dark;
+    }
+  }
+}
+
+.format-status{
+  .post-featured-image{ display: none; }
+}
+
+//Video and Audio formats
+.format-video, .format-audio{
+  @extend %post-no-details;
+
+  .post-content{
+    position: relative;
+    @include size(100%, 0);
+    padding-bottom: 56.25%;
+
+    iframe{
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include size(100%, 100%);
+      border: none;
+      outline: none;
+      padding: 0;
+    }
+  }
+}
+
+.format-audio{
+  .post-content{
+    @include break-min(tablet-s){ padding-bottom: 24%; }
+  }
+}
+
+//Image format
+.format-image{
+  @extend %post-no-details;
+  padding: 0;
+
+  &:before{
+    @extend %post-icon;
+    background-color: $bg-color-dark;
+  }
+
+  p{
+    display: block;
+    @include size(100%, 100%);
+    max-height: 600px;
+    overflow: hidden;
+  }
+
+  p img, img{
+    @include size(100%, 100%);
+    max-height: 580px;
+    vertical-align: bottom;
+    object-fit: cover;
+    padding: 0;
+  }
+}
+
+//Gallery format
+.format-gallery{
+  @extend %post-no-details;
+
+  &:before{
+    @extend %post-icon;
+    background-color: $bg-color-dark;
+  }
+
+  .post-content{
+    @include size(100%, 100%);
+    overflow: hidden;
+  }
+
+  p{
+    @include size(100%, 100%);
+
+    img{
+      @include size(100%, 45vh);
+      max-height: 580px;
+      object-fit: cover;
+      vertical-align: bottom;
+    }
+  }
+
+  //modifying Flickity slider default controls
+  .flickity-prev-next-button{
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    @include size(40px, 40px);
+    background-color: rgba(255, 255, 255, .3);
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &.previous{ left: 0; }
+    &.next{ right: 0; }
+    & .arrow{ fill: #fff; }
+  }
+}
+
+//Link
+.format-link{
+  @extend %post-no-details;
+  @include post-inner-title(#fff);
+  background-color: $bg-color-dark;
+  padding: 65px 3% 50px 3%;
+
+  @include break-min(laptop-l){ padding: 92px 3% 82px 3%; }
+
+  &:before{
+    @extend %post-icon;
+    background-color: #fff;
+  }
+
+  p, p a{
+    display: block;
+    @include font(18px, 500, #fff, $font-primary);
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    word-break: break-all;
+    margin-top: 10px;
+
+    @include break-min(tablet-s){ font-size: 20px; }
+
+    &:not(:last-child){
+      margin-bottom: 15px;
+    }
+  }
+}
+
+//Quote
+.format-quote{
+  @extend %post-no-details;
+  @include post-inner-title(#fff);
+  background-color: $bg-color-dark;
+  padding: 55px 3%;
+
+  @include break-min(laptop-l){ padding: 70px 20px 75px 20px; }
+
+  &:before{
+    @extend %post-icon;
+    background-color: #fff;
+  }
+
+  .post-content{
+    flex-direction: column;
+  }
+
+  p{
+    @include font(16px, 400, $details-color, $font-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  p a{
+    color: #fff;
+  }
+
+  blockquote, blockquote p{
+    @include font(18px, 500, #fff, $font-primary);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 180%;
+    margin-bottom: 22px;
+
+    @include break-min(tablet-s){ font-size: 20px; }
+  }
+}

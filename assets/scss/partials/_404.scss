@@ -1,0 +1,119 @@
+.lost{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  @include flex(column, center);
+  background-color: #f9f9fb;
+  padding: 40px 5%;
+}
+
+.lost-logo{
+  position: relative;
+
+  &__number{
+    @include font(135px, 600, $lost-color, $font-secondary);
+
+    @include break-min(tablet-m){ font-size: 200px; }
+    @include break-min(laptop-s){ font-size: 300px; }
+  }
+
+  &__tagline{
+    position: absolute;
+    bottom: 33%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+
+    @include break-min(laptop-s){ padding: 5px 0 0 3px; }
+  }
+
+  &__tagline-title{
+    @include font(12px, 400, $lost-color, $font-primary);
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+
+    @include break-min(tablet-m){
+      font-size: 16px;
+      letter-spacing: 7px;
+    }
+
+    @include break-min(laptop-s){
+      font-size: 20px;
+      letter-spacing: 15px;
+    }
+  }
+}
+
+.lost-form{
+  width: 100%;
+  max-width: 770px;
+  display: flex;
+  border: 1px solid $bg-color-light;
+  margin-bottom: 35px;
+
+  &__input{
+    @include size(78%, 48px);
+    @include border(solid, 0 1px 0 0, $bg-color-light);
+    @include font(14px, 400, $lost-color, $font-primary);
+    outline: none;
+    padding-left: 20px;
+
+    &:focus{
+      border: 1px solid $bg-color-dark;
+    }
+  }
+
+  &__btn{
+    @include size(22%, 48px);
+    @include flex(row, center);
+    @include border(solid, 0 0 0 1px, $bg-color-light);
+    @include font(11px, 700, #fff, $font-primary);
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    background-color: $lost-color;
+    outline: none;
+    cursor: pointer;
+
+    @include break-min(tablet-m){ font-size: 12px; }
+    @include break-min(laptop-s){ font-size: 14px; }
+  }
+}
+
+.lost-title{
+  text-align: center;
+
+  &__main{
+    @include font(24px, 600, $lost-color, $font-secondary);
+
+    @include break-min(tablet-m){ font-size: 30px; }
+  }
+
+  &__subtitle{
+    @include font(12px, 600, $details-color, $font-secondary);
+
+    @include break-min(tablet-m){ font-size: 14px; }
+  }
+}
+
+.lost-home{
+  text-align: center;
+  transform: translate(0, 23px);
+
+  svg{
+    @include size(17px, 17px);
+    fill: $details-color;
+    transform: translate(-3px, 2px);
+  }
+
+  &__link{
+    @include font(12px, 600, $lost-color, $font-secondary);
+    text-transform: uppercase;
+    text-decoration: none;
+
+    @include break-min(tablet-m){ font-size: 14px; }
+  }
+}

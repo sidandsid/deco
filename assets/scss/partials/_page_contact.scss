@@ -1,0 +1,152 @@
+.post-wrapper.contact{
+
+  .post-content{
+    @include break-min(tablet-l){
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+    }
+  }
+
+  .post-contact{
+    width: 100%;
+    margin-bottom: 30px;
+
+    @include break-min(tablet-l){ display: flex; }
+
+    &__map{
+      @include size(100%, 100%);
+
+      @include break-max(tablet-l){ min-height: 290px; }
+      @include break-min(tablet-l){ @include size(50%, 100%); }
+      @include break-min(laptop-s){ width: 38%; }
+    }
+
+    &__info{
+      background-color: #fff;
+      box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.2);
+      padding: 30px 5%;
+
+      @include break-max(tablet-l){ min-width: 100%; }
+      @include break-min(tablet-l){
+        width: 50%;
+        padding: 35px 50px 32px 30px;
+      }
+
+      @include break-min(laptop-s){ width: 62%; }
+    }
+
+    &__title{
+      position: relative;
+      display: block;
+      @include font(16px, 700, $contact-color, $font-secondary);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding-bottom: 28px;
+      margin-bottom: 23px;
+
+      @include break-min(tablet-m){ font-size: 20px; }
+
+      &:after{
+        position: absolute;
+        content: '';
+        bottom: 0;
+        left: 0;
+        @include size(60%, 2px);
+        background-color: $bg-color-light;
+      }
+    }
+
+    &__text{
+      @include font(14px, 500, $contact-color, $font-primary);
+      line-height: 160%;
+      margin-bottom: 20px;
+    }
+
+    &__item{
+      @include font(14px, 500, $contact-color, $font-primary);
+      margin-bottom: 8px;
+
+      svg{
+        @include size(15px, 15px);
+        fill: $bg-color;
+        margin-right: 10px;
+      }
+
+      &.email{
+        svg{
+          transform: translate(0, 3px);
+        }
+      }
+
+      &.website{
+        svg{
+          transform: translate(0px, 4px);
+        }
+      }
+    }
+
+    &__form{
+      width: 100%;
+
+      @include break-min(tablet-l){
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    }
+
+    &__form-input{
+      @include size(100%, 50px);
+      @include font(14px, 500, $contact-color, $font-primary);
+      text-transform: uppercase;
+      letter-spacing: .9px;
+      background-color: #fff;
+      box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.2);
+      border: none;
+      outline: none;
+      padding-left: 20px;
+      margin-bottom: 20px;
+
+      &:focus{
+        border: 1px solid $bg-color-dark;
+        outline: none;
+      }
+
+      &.name, &.email{
+        @include break-min(tablet-l){ width: 49%; }
+      }
+    }
+
+    &__form-msg{
+      @include size(100%, 250px);
+      @include font(14px, 500, $contact-color, $font-primary);
+      text-transform: uppercase;
+      letter-spacing: .9px;
+      background-color: #fff;
+      box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.2);
+      resize: none;
+      border: none;
+      outline: none;
+      padding: 20px;
+      margin-bottom: 25px;
+
+      &:focus{
+        border: 1px solid $bg-color-dark;
+        outline: none;
+      }
+    }
+
+    &__form-btn{
+      min-width: 170px;
+      min-height: 40px;
+      @include font(12px, 700, #fff, $font-secondary);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      background-color: $bg-color;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+}

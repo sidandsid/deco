@@ -1,0 +1,28 @@
+.post-wrapper.about{
+
+  .post-content{
+    @extend %post-default;
+    background-color: #fff;
+    padding: 0 3%;
+
+    @include break-min(laptop-l){ padding: 0 40px 33px 40px; }
+
+    &:before{
+      @extend %post-icon;
+      background-color: $bg-color-dark;
+    }
+  }
+
+  .post-title{
+    @include font(22px, 600, $title-color, $font-secondary);
+    letter-spacing: 1.7px;
+    margin-top: 65px;
+
+    @include break-min(tablet-m){ font-size: 24px; }
+    @include break-min(laptop-m){ font-size: 28px; }
+  }
+
+  blockquote{
+    @include break-min(tablet-l){ padding: 0 14%; }
+  }
+}

@@ -1,0 +1,604 @@
+.post-wrapper{
+  width: 100%;
+  max-width: 100%;
+
+  &.single{
+    .post-comments__number{
+      @include hover{
+        color: $title-color;
+        transition: color .3s ease;
+
+        svg{
+          fill: $title-color;
+          transition: fill .3s ease;
+        }
+      }
+    }
+  }
+}
+
+.post-featured-image{
+  @include size(100%, auto);
+  max-height: 500px;
+  overflow: hidden;
+  z-index: 100;
+
+  img{
+    @include size(100%, auto);
+    vertical-align: bottom;
+    object-fit: cover;
+  }
+}
+
+.post{
+  position: relative;
+  @include flex(row, center);
+  width: 100%;
+  margin-bottom: 40px;
+
+  @include break-min(laptop-m){ margin-bottom: 60px; }
+
+  &:last-of-type{
+    margin-bottom: 0;
+  }
+}
+
+.post-content{
+  position: relative;
+  @include flex(row, center);
+
+  p:first-of-type{ width: 100%; }
+}
+
+.post-category{
+  margin: 65px 0 20px 0;
+
+  @include break-max(tablet-m){ margin-top: 45px; }
+
+  a{
+    @extend %post-details;
+    letter-spacing: 1.5px;
+    @include hover-color($title-color);
+  }
+
+  &__icon{
+    position: absolute;
+    display: block;
+    @include size(32px, 20px);
+    fill: #fff;
+    top: -11px;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    margin: 0 auto;
+
+    &.landscape{
+      @include break-max(tablet-s){
+        @include size(18px, 18px);
+        top: -9px;
+      }
+    }
+
+    &.quote{
+      fill: $bg-color-dark;
+
+      @include break-max(tablet-s){
+        @include size(14px, 14px);
+        top: -7px;
+      }
+    }
+
+    &.gallery{
+      top: - 13px;
+      height: 23px;
+
+      @include break-max(tablet-s){
+        @include size(17px, 17px);
+        top: -10px;
+      }
+    }
+
+    &.pencil{
+      @include break-max(tablet-s){
+        @include size(14px, 14px);
+        top: -7px;
+      }
+    }
+
+    &.photo{
+      @include break-max(tablet-s){
+        @include size(15px, 15px);
+        top: -8px;
+      }
+    }
+  }
+}
+
+.post-title{
+  width: 100%;
+  @include font(31px, 700, $title-color, $font-primary);
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 2px;
+  line-height: 125%;
+  margin-bottom: 12px;
+
+  @include break-max(tablet-m){ font-size: 26px; }
+}
+
+.post-author{
+  @include hover{
+    a{
+      color: $title-color;
+      transition: color .3s ease;
+    }
+
+    svg{
+      fill: $title-color;
+      transition: fill .3s ease;
+    }
+  }
+
+  @include break-max(tablet-s){
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  @include break-min(tablet-s){
+    max-width: 40%;
+    margin: 0 15px 30px 0;
+  }
+
+  a{
+    @extend %post-details;
+    letter-spacing: 1px;
+    transition: color .3s ease;
+  }
+
+  svg{
+      @include size(19px, 19px);
+      transform: translate(-5px, 3px);
+      fill: $post-icon-color;
+      transition: fill .3s ease;
+  }
+}
+
+.post-date{
+  @extend %post-details;
+  letter-spacing: 1px;
+
+  @include break-max(tablet-s){
+    width: 100%;
+    text-align: center;
+    margin-bottom: 26px;
+  }
+
+  @include break-min(tablet-s){
+    max-width: 40%;
+    margin: 0 0 30px 15px;
+  }
+
+  svg{
+    @include size(19px, 19px);
+    transform: translate(-5px, 3px);
+    fill: $post-icon-color;
+  }
+}
+
+.post-iframe{
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0 0 56.25% 0;
+}
+
+.more-link{
+  @include flex(row, center);
+  @include size(125px, 30px);
+  @include border(solid, 0 1px 0 1px, $bg-color-light);
+  @include font(14px, 500, $more-link-color, $font-primary);
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2.5px;
+  margin: 30px auto 0 auto;
+
+  @include hover-color(#000);
+}
+
+.post-footer{
+  @include flex(row, space-between);
+  @include border(solid, 3px 0 0 0, $base-color);
+  width: 100%;
+  min-height: 75px;
+  padding: 0 7%;
+  transition: fill .3s ease;
+
+  @include break-max(mobile-l){
+    padding: 15px 7%;
+    @include flex(column, center);
+  }
+
+  @include break-min(laptop-l){ padding: 0 102px 0 60px; }
+
+  svg{
+    transition: fill .3s ease;
+  }
+
+}
+
+.post-sm{
+  ul{
+    display: flex;
+  }
+
+  li{
+    &:not(:last-of-type){
+      margin-right: 30px;
+    }
+  }
+
+  a{
+    font-size: 0;
+  }
+
+  svg{
+    fill: $bg-color;
+
+    &.dribbble{
+      @include size(16px, 16px);
+      @include hover-fill(#f55387);
+    }
+
+    &.facebook{
+      @include size(17px, 18px);
+      @include hover-fill(#3d76f0);
+    }
+
+    &.twitter{
+      @include size(17px, 17px);
+      @include hover-fill(#3dc5f0);
+    }
+
+    &.pinterest{
+      @include size(19px, 19px);
+      @include hover-fill(#ef2d27);
+    }
+  }
+}
+
+.post-tags{
+  @extend %post-details;
+  width: 100%;
+  margin: 30px 0 10px 0 !important;
+
+  a{
+    @extend %post-details;
+    color: $details-color !important;
+  }
+
+  svg{
+    @include size(19px, 19px);
+    transform: translate(-5px, 3px);
+    fill: $post-icon-color;
+  }
+}
+
+.post-comments{
+
+  &__number{
+    @extend %post-details;
+    transition: color .3s ease;
+
+    @include break-max(mobile-l){ margin-bottom: 15px; }
+    @include break-min(mobile-l){ margin-right: 35px; }
+
+    svg{
+      @include size(14px, 14px);
+      fill: $post-icon-color;
+      transform: translate(-5px, 3px);
+      transition: fill .3s ease;
+    }
+  }
+
+  &__wrapper{
+    width: 100%;
+    padding: 0 3%;
+    display: none;
+  }
+
+  &__list{
+    @include flex(column, center);
+    min-width: 100%;
+    margin-top: 40px;
+
+    div{
+      width: 100%;
+      @include flex(row, flex-start);
+      margin-bottom: 15px;
+
+      &:nth-child(even){
+        p{
+          background-color: darken($bg-color-light, 10%);
+        }
+      }
+
+      p{
+        width: 100%;
+        @include font(14px, 400, #000, $font-primary);
+        text-align: left;
+        letter-spacing: 1px;
+        background-color: lighten($bg-color-light, 10%);
+        padding: 15px;
+      }
+    }
+
+    .comment-author.vcard{
+      width: 100%;
+
+      img{
+        margin-right: 10px;
+      }
+
+      .fn{
+        @include font(15px, 500, $title-color, $font-primary);
+        font-style: normal;
+        text-transform: uppercase;
+        margin-right: 10px;
+
+        a{
+          color: #000;
+        }
+      }
+
+      .says{
+        @include font(14px, 400, $title-color, $font-primary);
+      }
+    }
+
+    .comment-meta a{
+      @include font(14px, 400, $title-color, $font-primary);
+      text-decoration: none;
+    }
+
+    .comment-reply-link{
+      @include font(15px, 500, $title-color, $font-primary);
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .comment-reply-title a{
+      color: $title-color !important;
+      text-decoration: none;
+    }
+  }
+
+  &__reply-wrapper{
+    width: 100%;
+    padding: 0 3%;
+    margin-top: 20px;
+    display: none;
+
+    .comment-notes{
+      display: none;
+    }
+
+    #reply-title{
+      font-size: 24px;
+      margin-bottom: 25px;
+    }
+
+    label{
+      display: block;
+      @include font(14px, 400, $title-color, $font-primary);
+      text-transform: uppercase;
+      text-align: left;
+      letter-spacing: 1px;
+    }
+
+    input, textarea{
+      display: block;
+      width: 100%;
+      background-color: lighten($bg-color-light, 10%);
+      border: none;
+      outline: none;
+      padding: 20px 2%;
+
+      &:focus{
+        outline: 1px solid $bg-color-dark;
+      }
+    }
+
+    textarea{
+      min-height: 150px;
+      resize: none;
+    }
+
+    #submit{
+      @include size(100%, 50px);
+      @include font(15px, 500px, #fff, $font-primary);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      background-color: $bg-color-dark;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+}
+
+.post-nav{
+  @include flex(row, space-between);
+  width: 100%;
+  margin-top: 60px;
+
+  &__link{
+    position: relative;
+    display: block;
+    @include flex(row, center);
+    @include size( calc(50% - 15px), 80px);
+    z-index: 1;
+
+    @include break-min(tablet-m){ height: 100px; }
+    @include break-min(laptop-l){ height: 140px; }
+
+    &.next{
+      @include break-min(tablet-m){
+        svg{
+          transform: translate(74px, -57%);
+        }
+      }
+    }
+
+    &.prev{
+      @include break-min(tablet-m){
+        svg{
+          transform: translate(-93px, -57%);
+        }
+      }
+    }
+
+    svg{
+      position: absolute;
+      @include size(38px, 20px);
+      fill: #fff;
+      z-index: 2;
+
+      @include break-max(tablet-m){
+        right: 0;
+        bottom: 10px;
+        left: 0;
+        margin: 0 auto;
+      }
+
+      @include break-min(tablet-m){
+        top: 50%;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+      }
+    }
+
+    a{
+      position: relative;
+      @include flex(row, center);
+      @include size(100%, 100%);
+      @include font(14px, 500, #fff, $font-primary);
+      text-transform: uppercase;
+      text-align: center;
+      text-decoration: none;
+
+      @include break-min(tablet-m){ letter-spacing: 2.4px; }
+
+      &:before{
+        position: absolute;
+        content: '';
+        @include size(100%, 100%);
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+        background-color: $bg-color-dark;
+        z-index: -1;
+        transition: background-color .3s linear;
+      }
+
+      @include hover{
+        &:before{
+          background-color: lighten($bg-color, 5%);
+          transition: background-color .3s linear;
+        }
+      }
+    }
+  }
+}
+
+.post-recommended{
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  overflow: hidden;
+  padding: 45px 30px 0 30px;
+  margin-top: 60px;
+
+  &:focus{
+    border: none;
+    outline: none;
+  }
+
+  &__title{
+    width: 100%;
+    @include font(16px, 700, #212121, $font-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    margin-bottom: 32px;
+
+    @include break-min(tablet-m){ font-size: 20px; }
+  }
+
+  &__item{
+    text-align: center;
+    margin-bottom: 40px;
+
+    @include break-max(tablet-m){
+      width: 100%;
+      margin-right: 5%;
+    }
+
+    @include break-min(tablet-m){
+      width: 340px;
+      margin-right: 30px;
+    }
+
+    img{
+      @include size(100%, 220px);
+      background-color: #464646;
+      vertical-align: bottom;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__name{
+    display: block;
+    @include font(14px, 700, #212121, $font-secondary);
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+
+    @include break-min(tablet-m){ font-size: 16px; }
+  }
+
+  //modifying Flickity slider default controls
+  .flickity-prev-next-button{
+    position: absolute;
+    @include size(30px, 30px);
+    background-color: #464646;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    @include break-max(tablet-m){
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+
+    @include break-min(tablet-m){ top: 40px; }
+
+    &.previous{
+      @include break-max(tablet-m){ left: 0; }
+      @include break-min(tablet-m){ right: 70px; }
+    }
+
+    &.next{
+      @include break-max(tablet-m){ right: 0; }
+      @include break-min(tablet-m){ right: 30px; }
+    }
+
+    & .arrow{
+      fill: #fff;
+    }
+  }
+}
